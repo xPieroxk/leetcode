@@ -4,6 +4,10 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+        # Used dynamic programming instead of Manacher's Algorithm because
+        # Manacher's is specific to this problem, while DP is more general and
+        # can be applied to a wider range of problems. Since I am practicing,
+        # I preferred this approach.
         substrings = [[False for _ in range(len(s))] for _ in range(len(s))]
         longest_palindrome = s[0]
 
