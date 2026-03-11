@@ -7,5 +7,5 @@ if len(sys.argv) == 3:
 
     os.makedirs(path, exist_ok=True)
 
-    open(os.path.join(path, "README.md"), 'w').close()
-    open(os.path.join(path, "solution.py"), 'w').close()
+    open(os.path.join(path, "README.md"), 'a').close()
+    open(os.path.join(path, "solution.py"), 'a').close()
