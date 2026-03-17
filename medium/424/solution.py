@@ -19,7 +19,7 @@ class Solution:
 
 
 # Less intuitive solution where the max freq is global.
-# In this solution the windows 'slides' with the same width and ONLY when a new max_freq is found the m_lenght
+# In this solution the window 'slides' with the same width and ONLY when a new max_freq is found the m_lenght
 # increases. Both solution are O(n) since letters in the alph are 26 the max function is constant on max(freqs.values())
 
 from collections import defaultdict
@@ -34,7 +34,7 @@ class Solution:
             freqs[s[r]]+=1
             max_freq = max(max_freq, freqs[s[r]])
 
-            while (r-l+1)-max_freq>k:
+            if (r-l+1)-max_freq>k:
                 freqs[s[l]] -=1
                 l+=1
 
