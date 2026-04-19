@@ -20,4 +20,14 @@ class Solution(object):
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         return False
 
+# pt2
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        if (p and not q) or (not p and q) or p.val != q.val:
+            return False
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
+
 
