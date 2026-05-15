@@ -33,7 +33,7 @@ class Solution:
         beginSet, endSet, wordSet = {beginWord}, {endWord}, set(wordList)
         n, ans = len(beginWord), 1
         while beginSet and endSet:
-            if len(beginSet) < len(endSet):
+            if len(beginSet) > len(endSet):
                 beginSet, endSet = endSet, beginSet
             nextSet = set()
 
