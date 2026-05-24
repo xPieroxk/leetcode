@@ -23,3 +23,46 @@ class Solution(object):
                 if substrings[i][i + window] and window + 1 > len(longest_palindrome):
                     longest_palindrome = s[i:i + window + 1]
         return longest_palindrome
+
+# 2 pointer
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        start = length = 0
+        for i in range(n):
+            l = r = i
+            while l >= 0 and r < n and s[l] == s[r]:
+                if (r - l + 1) > length:
+                    start = l
+                    length = r - l + 1
+                l -= 1
+                r += 1
+            l, r = i, i + 1
+            while l >= 0 and r < n and s[l] == s[r]:
+                if (r - l + 1) > length:
+                    start = l
+                    length = r - l + 1
+                l -= 1
+                r += 1
+
+        return s[start:start + length]
+
+# dp refined
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        dp = [[False for _ in range(n)] for _ in range(n)]
+
+        start = length = -1
+
+        for w_size in range(1, n + 1):
+            for i in range(n - w_size + 1):
+                j = i + w_size - 1
+                if s[i] != s[j]:
+                    continue
+                if (j - i == 0) or (j - i == 1) or (dp[i + 1][j - 1]):
+                    dp[i][j] = True
+                    if (j - i + 1) > length:
+                        start = i
+                        length = j - i + 1
+        return s[start:start + length]
