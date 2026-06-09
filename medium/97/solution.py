@@ -19,7 +19,7 @@ class Solution:
 
         return dfs(0, 0)
 
-# top-down
+# bottom-up
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         n, m, k = len(s1), len(s2), len(s3)
