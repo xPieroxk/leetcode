@@ -39,5 +39,5 @@ class Solution:
                 for i in range(groupSize):
                     if count[card+i]< need:
                         return False
-                    count[card+i]-=c
+                    count[card+i]-=need
         return True
